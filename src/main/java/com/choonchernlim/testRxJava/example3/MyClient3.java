@@ -16,8 +16,7 @@ public class MyClient3 {
 
         final MyService3 myService = new MyService3();
 
-        // ## NEW ##
-        /*! Person ID 10 is invalid. */
+        // Person ID 10 is invalid
         final Observable<String> users = myService.getAllUsers(1, 2, 3, 10, 5);
 
         users.subscribe(new Action1<String>() {

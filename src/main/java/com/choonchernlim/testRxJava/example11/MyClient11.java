@@ -20,6 +20,7 @@ public class MyClient11 {
         final Observable<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
         final Observable<Integer> points = myService.getAllPoints(1, 2, 3, 4, 5);
 
+        // Pairing items with `zip(..)`
         Observable
                 .zip(users, points, new Func2<String, Integer, String>() {
                     @Override

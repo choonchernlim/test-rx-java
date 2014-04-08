@@ -7,6 +7,7 @@ import rx.Subscriber;
 public class MyService1 {
     private final MyDAO myDao = new MyDAO();
 
+    // instead of returning the actual object, wrap it with `Observable`
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override

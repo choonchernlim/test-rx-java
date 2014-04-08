@@ -6,6 +6,7 @@ import java.util.Collection;
 
 /**
  * Without using RxJava. A huge wait for the job to complete before the data is displayed.
+ * `myService.getAllUsers(..)` becomes a blocking API.
  */
 public class MyClient0 {
 

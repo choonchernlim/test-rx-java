@@ -25,6 +25,7 @@ public class MyClient8 {
         @SuppressWarnings("unchecked")
         final List<Observable<String>> users = Arrays.asList(userList1, userList2);
 
+        // controlling the concurrent thread
         Observable.merge(users, 1)
                 .subscribe(new Subscriber<String>() {
                     @Override

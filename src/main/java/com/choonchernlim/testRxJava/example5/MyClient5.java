@@ -33,7 +33,7 @@ public class MyClient5 {
             public void onNext(String s) {
                 LOGGER.info(Thread.currentThread() + "\tRESULT: " + s);
 
-                // ## NEW ##
+                // if Tom is found, then terminate the search
                 if ("(2) Tom".equals(s)) {
                     unsubscribe();
                 }

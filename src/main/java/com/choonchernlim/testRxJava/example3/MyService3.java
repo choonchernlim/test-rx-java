@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 public class MyService3 {
     private final MyDAO myDao = new MyDAO();
 
-    /*! Same as Example 2. */
+    // Same as Example 2
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -36,7 +36,7 @@ public class MyService3 {
         for (Integer personId : personIds) {
             final String name = myDao.getUser(personId);
 
-            // ## NEW ##
+            // perform a rudimentary check to ensure name exists, otherwise throw an error
             if (!StringUtils.isBlank(name)) {
                 subscriber.onNext(name);
             }

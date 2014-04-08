@@ -16,10 +16,11 @@ public class MyClient10 {
 
         final MyService10 myService = new MyService10();
 
-        /*! Person ID 10 is invalid. */
+        // Person ID 10 is invalid
         final Observable<String> userList1 = myService.getAllUsers(1, 10, 2);
         final Observable<String> userList2 = myService.getAllUsers(3, 4, 5);
 
+        // Push the error to the end
         Observable.mergeDelayError(userList1, userList2)
                 .subscribe(new Subscriber<String>() {
                     @Override

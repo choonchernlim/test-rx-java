@@ -20,6 +20,7 @@ public class MyClient7 {
         final Observable<String> userList2 = myService.getAllUsers(2, 3, 4);
         final Observable<String> userList3 = myService.getAllUsers(3, 4, 5);
 
+        // processing multiple `Observable` items to speed up performance
         Observable
                 .merge(userList1, userList2, userList3)
                 .subscribe(new Subscriber<String>() {

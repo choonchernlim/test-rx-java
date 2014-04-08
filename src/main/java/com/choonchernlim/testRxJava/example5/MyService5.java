@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 public class MyService5 {
     private final MyDAO myDao = new MyDAO();
 
-    /*! Same as Example 2. */
+    // Same as Example 2
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -34,7 +34,7 @@ public class MyService5 {
     private void query(Subscriber<? super String> subscriber, int[] personIds) {
 
         for (Integer personId : personIds) {
-            // ## NEW ##
+            // if subscriber has unsubscribed, then quit
             if (subscriber.isUnsubscribed()) {
                 break;
             }

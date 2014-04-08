@@ -16,10 +16,10 @@ public class MyClient4 {
 
         final MyService4 myService = new MyService4();
 
-        /*! Person ID 10 is invalid. */
+        // Person ID 10 is invalid
         final Observable<String> users = myService.getAllUsers(1, 2, 3, 10, 5);
 
-        // ## NEW ##
+        // A finer control on subscriber's end to handle the data from producer
         users.subscribe(new Subscriber<String>() {
             @Override
             public void onCompleted() {

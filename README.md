@@ -4,15 +4,16 @@ Testing API from [Netflix/RxJava](https://github.com/Netflix/RxJava).
 
 ## Example 0
 
-A simple example that doesn't leverage RxJava. You may notice a long pause while the DAO "retrieves" all the data to be displayed.
+A simple example that doesn't leverage RxJava, which results a blocking API.
+You may notice a long pause while the DAO "retrieves" all the data to be displayed.
 
 ## Example 1
 
-A simple synchronous call.
+A simple synchronous call with RxJava.
 
 ## Example 2
 
-A simple asynchronous call.
+A simple asynchronous call with RxJava.
 
 ## Example 3
 
@@ -28,7 +29,7 @@ A subscriber's ability to unsubscribe at anytime.
 
 ## Example 6
 
-The power of `skip(..)` and `take(..)`.
+The power of `skip(..)` and `take(..)` to create "pagination-like" way to traverse `Observable`.
 
 ## Example 7
 
@@ -48,5 +49,5 @@ Pushing error to the end during multi-thread processing.
 
 ## Example 11
 
-Pairing items.
+Pairing items with `zip(..)`.
 

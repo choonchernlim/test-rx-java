@@ -5,7 +5,7 @@ import rx.Observable;
 import rx.functions.Action1;
 
 /**
- * Synchronous call.
+ * Synchronous call using RxJava.
  */
 public class MyClient1 {
 

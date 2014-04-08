@@ -11,7 +11,7 @@ public class MyClient2 {
 
     private static final Logger LOGGER = Logger.getLogger(MyClient2.class);
 
-    /*! No change from Example 1. */
+    // No change from Example 1
     public static void main(String[] args) {
         LOGGER.info("Started.");
 

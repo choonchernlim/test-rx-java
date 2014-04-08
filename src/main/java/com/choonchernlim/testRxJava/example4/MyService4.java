@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 public class MyService4 {
     private final MyDAO myDao = new MyDAO();
 
-    /*! Same as Example 2. */
+    // Same as Example 2
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -31,7 +31,7 @@ public class MyService4 {
         });
     }
 
-    /*! Same as Example 3. */
+    // Same as Example 3
     private void query(Subscriber<? super String> subscriber, int[] personIds) {
 
         for (Integer personId : personIds) {

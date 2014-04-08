@@ -18,7 +18,7 @@ public class MyClient6 {
 
         final Observable<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
 
-        // ## NEW ##
+        // A clean "pagination-like" way to traverse `Observable`
         users
                 .skip(2)
                 .take(2)

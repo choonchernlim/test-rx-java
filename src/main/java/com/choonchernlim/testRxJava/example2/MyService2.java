@@ -10,7 +10,7 @@ import java.util.concurrent.Executors;
 public class MyService2 {
     private final MyDAO myDao = new MyDAO();
 
-    // ## NEW ##
+    // wrap `query(..)` with `ExecutorService`
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -29,7 +29,7 @@ public class MyService2 {
         });
     }
 
-    /*! No change from Example 1. */
+    // No change from Example 1
     private void query(Subscriber<? super String> subscriber, int[] personIds) {
 
         for (Integer personId : personIds) {
