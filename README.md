@@ -1,6 +1,6 @@
-# testRxJava
+# Testing Netflix's RxJava
 
-Testing API from [Netflix/RxJava](https://github.com/Netflix/RxJava).
+These simple tutorials demonstrate the power of [Netflix/RxJava](https://github.com/Netflix/RxJava).
 
 ## Example 0
 
