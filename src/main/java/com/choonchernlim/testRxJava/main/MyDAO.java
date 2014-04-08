@@ -5,7 +5,9 @@ import static java.lang.Thread.sleep;
 
 import java.util.Map;
 
-
+/**
+ * A very simple DAO class.
+ */
 public class MyDAO {
     private static final Map<Integer, String> USER_MAP = ImmutableMap.of(1, "(1) Mike",
                                                                          2, "(2) Tom",
@@ -19,14 +21,26 @@ public class MyDAO {
                                                                            4, 400,
                                                                            5, 500);
 
+    /**
+     * Returns a person's name.
+     *
+     * @param personId person ID
+     * @return Name
+     */
     public String getUser(int personId) {
         pause();
         return USER_MAP.get(personId);
     }
 
-    public Integer getPoint(int pointId) {
+    /**
+     * Returns a person's point.
+     *
+     * @param personId person ID
+     * @return Point
+     */
+    public Integer getPoint(int personId) {
         pause();
-        return POINT_MAP.get(pointId);
+        return POINT_MAP.get(personId);
     }
 
     /**
