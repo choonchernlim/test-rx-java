@@ -8,13 +8,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MyService11 {
-    private MyDAO myDao = new MyDAO();
+    private final MyDAO myDao = new MyDAO();
 
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(final Subscriber<? super String> subscriber) {
-                ExecutorService executorService = Executors.newFixedThreadPool(5);
+                final ExecutorService executorService = Executors.newFixedThreadPool(5);
 
                 executorService.submit(new Runnable() {
                     @Override
@@ -30,7 +30,7 @@ public class MyService11 {
 
     private void queryUser(Subscriber<? super String> subscriber, int[] personIds) {
         for (Integer personId : personIds) {
-            String name = myDao.getUser(personId);
+            final String name = myDao.getUser(personId);
             subscriber.onNext(name);
         }
 
@@ -41,7 +41,7 @@ public class MyService11 {
         return Observable.create(new Observable.OnSubscribe<Integer>() {
             @Override
             public void call(final Subscriber<? super Integer> subscriber) {
-                ExecutorService executorService = Executors.newFixedThreadPool(5);
+                final ExecutorService executorService = Executors.newFixedThreadPool(5);
 
                 executorService.submit(new Runnable() {
                     @Override
@@ -57,7 +57,7 @@ public class MyService11 {
 
     private void queryPoint(Subscriber<? super Integer> subscriber, int[] personIds) {
         for (Integer personId : personIds) {
-            Integer point = myDao.getPoint(personId);
+            final Integer point = myDao.getPoint(personId);
             subscriber.onNext(point);
         }
         subscriber.onCompleted();

@@ -9,34 +9,36 @@ import rx.Subscriber;
  */
 public class MyClient9 {
 
-    private static Logger log = Logger.getLogger(MyClient9.class);
+    private static final Logger LOGGER = Logger.getLogger(MyClient9.class);
 
     public static void main(String[] args) {
-        MyService9 myService = new MyService9();
+        LOGGER.info("Started.");
+
+        final MyService9 myService = new MyService9();
 
         /*! Person ID 10 is invalid. */
-        Observable<String> userList1 = myService.getAllUsers(1, 10, 2);
-        Observable<String> userList2 = myService.getAllUsers(3, 4, 5);
+        final Observable<String> userList1 = myService.getAllUsers(1, 10, 2);
+        final Observable<String> userList2 = myService.getAllUsers(3, 4, 5);
 
         Observable.merge(userList1, userList2)
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        log.info(Thread.currentThread() + "\tDone.");
+                        LOGGER.info(Thread.currentThread() + "\tDone.");
                     }
 
                     @Override
                     public void onError(Throwable throwable) {
-                        log.error(Thread.currentThread() + "\tERROR: " + throwable);
+                        LOGGER.error(Thread.currentThread() + "\tERROR: " + throwable);
                     }
 
                     @Override
                     public void onNext(String s) {
-                        log.info(Thread.currentThread() + "\tRESULT: " + s);
+                        LOGGER.info(Thread.currentThread() + "\tRESULT: " + s);
                     }
                 });
 
-        log.info("Main: Done.");
+        LOGGER.info("Done.");
     }
 
 

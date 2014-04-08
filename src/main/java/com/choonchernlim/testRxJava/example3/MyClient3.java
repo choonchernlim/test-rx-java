@@ -9,23 +9,25 @@ import rx.functions.Action1;
  */
 public class MyClient3 {
 
-    private static Logger log = Logger.getLogger(MyClient3.class);
+    private static final Logger LOGGER = Logger.getLogger(MyClient3.class);
 
     public static void main(String[] args) {
-        MyService3 myService = new MyService3();
+        LOGGER.info("Started.");
+
+        final MyService3 myService = new MyService3();
 
         // ## NEW ##
         /*! Person ID 10 is invalid. */
-        Observable<String> users = myService.getAllUsers(1, 2, 3, 10, 5);
+        final Observable<String> users = myService.getAllUsers(1, 2, 3, 10, 5);
 
         users.subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
-                log.info(Thread.currentThread() + "\tRESULT: " + s);
+                LOGGER.info(Thread.currentThread() + "\tRESULT: " + s);
             }
         });
 
-        log.info("Main: Done.");
+        LOGGER.info("Done.");
     }
 
 

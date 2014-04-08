@@ -9,18 +9,20 @@ import java.util.Collection;
  */
 public class MyClient0 {
 
-    private static Logger log = Logger.getLogger(MyClient0.class);
+    private static final Logger LOGGER = Logger.getLogger(MyClient0.class);
 
     public static void main(String[] args) {
+        LOGGER.info("Started.");
+
         final MyService0 myService = new MyService0();
 
         final Collection<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
 
         for (String user : users) {
-            log.info(Thread.currentThread() + "\tRESULT: " + user);
+            LOGGER.info(Thread.currentThread() + "\tRESULT: " + user);
         }
 
-        log.info("Done.");
+        LOGGER.info("Done.");
     }
 
 

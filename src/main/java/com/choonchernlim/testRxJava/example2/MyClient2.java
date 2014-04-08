@@ -9,22 +9,24 @@ import rx.functions.Action1;
  */
 public class MyClient2 {
 
-    private static Logger log = Logger.getLogger(MyClient2.class);
+    private static final Logger LOGGER = Logger.getLogger(MyClient2.class);
 
     /*! No change from Example 1. */
     public static void main(String[] args) {
-        MyService2 myService = new MyService2();
+        LOGGER.info("Started.");
 
-        Observable<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
+        final MyService2 myService = new MyService2();
+
+        final Observable<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
 
         users.subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
-                log.info(Thread.currentThread() + "\tRESULT: " + s);
+                LOGGER.info(Thread.currentThread() + "\tRESULT: " + s);
             }
         });
 
-        log.info("Main: Done.");
+        LOGGER.info("Done.");
     }
 
 

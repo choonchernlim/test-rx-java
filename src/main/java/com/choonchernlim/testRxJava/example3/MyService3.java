@@ -10,14 +10,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MyService3 {
-    private MyDAO myDao = new MyDAO();
+    private final MyDAO myDao = new MyDAO();
 
     /*! Same as Example 2. */
     public Observable<String> getAllUsers(final int... personIds) {
         return Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(final Subscriber<? super String> subscriber) {
-                ExecutorService executorService = Executors.newFixedThreadPool(5);
+                final ExecutorService executorService = Executors.newFixedThreadPool(5);
 
                 executorService.submit(new Runnable() {
                     @Override
@@ -34,7 +34,7 @@ public class MyService3 {
     private void query(Subscriber<? super String> subscriber, int[] personIds) {
 
         for (Integer personId : personIds) {
-            String name = myDao.getUser(personId);
+            final String name = myDao.getUser(personId);
 
             // ## NEW ##
             if (!StringUtils.isBlank(name)) {

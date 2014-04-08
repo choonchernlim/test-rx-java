@@ -2,6 +2,10 @@
 
 Testing API from [Netflix/RxJava](https://github.com/Netflix/RxJava).
 
+## Example 0
+
+A simple example that doesn't leverage RxJava. You may notice a long pause while the DAO "retrieves" all the data to be displayed.
+
 ## Example 1
 
 A simple synchronous call.

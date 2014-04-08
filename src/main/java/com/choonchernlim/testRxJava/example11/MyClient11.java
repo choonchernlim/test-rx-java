@@ -10,13 +10,15 @@ import rx.functions.Func2;
  */
 public class MyClient11 {
 
-    private static Logger log = Logger.getLogger(MyClient11.class);
+    private static final Logger LOGGER = Logger.getLogger(MyClient11.class);
 
     public static void main(String[] args) {
-        MyService11 myService = new MyService11();
+        LOGGER.info("Started.");
 
-        Observable<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
-        Observable<Integer> points = myService.getAllPoints(1, 2, 3, 4, 5);
+        final MyService11 myService = new MyService11();
+
+        final Observable<String> users = myService.getAllUsers(1, 2, 3, 4, 5);
+        final Observable<Integer> points = myService.getAllPoints(1, 2, 3, 4, 5);
 
         Observable
                 .zip(users, points, new Func2<String, Integer, String>() {
@@ -28,22 +30,22 @@ public class MyClient11 {
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onCompleted() {
-                        log.info(Thread.currentThread() + "\tDone.");
+                        LOGGER.info(Thread.currentThread() + "\tDone.");
                     }
 
                     @Override
                     public void onError(Throwable throwable) {
-                        log.error(Thread.currentThread() + "\tERROR: " + throwable);
+                        LOGGER.error(Thread.currentThread() + "\tERROR: " + throwable);
                     }
 
                     @Override
                     public void onNext(String s) {
-                        log.info(Thread.currentThread() + "\tRESULT: " + s);
+                        LOGGER.info(Thread.currentThread() + "\tRESULT: " + s);
                     }
                 });
 
 
-        log.info("Main: Done.");
+        LOGGER.info("Done.");
     }
 
 
